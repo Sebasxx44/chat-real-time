@@ -18,8 +18,10 @@ export function User() {
 
                 {user && (
                     <>
-                        <img src={image} alt=" image" referrerPolicy="no-referrer"/>
-                        <p>{name}</p>
+                        <div className="user-info">
+                            <img src={image} alt=" image" referrerPolicy="no-referrer"/>
+                            <p>{name}</p>
+                        </div>
                     </>
                 )}
 

@@ -4,6 +4,7 @@ import { useState } from "react"
 import Picker from 'emoji-picker-react';
 import { useEffect } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Login } from "../auth/Login";
 
 
 export function SendMessage() {
@@ -12,23 +13,39 @@ export function SendMessage() {
     const [open,setOpen] = useState(false)
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
     const [user] = useAuthState(auth);
+    const [sendingMessage, setSendingMessage] = useState(false)
 
     const sendMessage = async (e) => {
+
+        setSendingMessage(true)
         
         e.preventDefault()
 
-        const {uid,displayName, photoURL} = auth.currentUser
+        if (input.trim() === '') {
+            setSendingMessage(false)
+            return; 
+        }
 
-        await addDoc(collection(db, 'messages'), {
-            text : input,
-            name : displayName,
-            uid : uid,
-            photo : photoURL,
-            timestamp : serverTimestamp()
-        })
+        try {
 
-        setInput('')
-        setOpen(false)
+            const {uid,displayName, photoURL} = auth.currentUser
+    
+            await addDoc(collection(db, 'messages'), {
+                text : input,
+                name : displayName,
+                uid : uid,
+                photo : photoURL,
+                timestamp : serverTimestamp()
+            })
+    
+            setSendingMessage(false)
+            setInput('')
+            setOpen(false)
+            
+        } catch (error) {
+            setSendingMessage(false)
+        }
+
     }
 
     const closeEmoji = () => {
@@ -54,37 +71,32 @@ export function SendMessage() {
         <>
 
 
-        {user ? 
+        {user && (
 
             <form onSubmit={sendMessage}>
 
                 <div className="send-message-container">
                     <button type="button" className="btn-emoji"  onClick={closeEmoji}>
-                        {open ? <i class="fa-solid fa-x"></i> : <i class="fa-solid fa-face-smile"></i>}
+                        {open ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-face-smile"></i>}
                     </button>
 
                     <div className={open ? 'open' : 'close'}>
                         <Picker onEmojiClick={onEmojiClick}/>
                     </div>
 
-                    <input type="text" placeholder="Escribe tu mensaje" value={input} onChange={(e) => setInput(e.target.value)}/>
+                    <input type="text" placeholder="Send your message" value={input} onChange={(e) => setInput(e.target.value)}/>
 
-                    <button type="submit" className="btn-send-message">
+                    <button type="submit" className="btn-send-message" disabled={sendingMessage}>
                         {isSmallScreen ? <i className="fa-solid fa-paper-plane"></i> : "Enviar"}
                     </button>
                 </div>
 
 
             </form>
-        
-        : 
 
-            <h1>dsdsdsdsd</h1>
-        
-        }
+        )}
 
         </>
         
-
     )
 }

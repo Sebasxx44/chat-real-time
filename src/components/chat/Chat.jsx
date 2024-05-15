@@ -28,19 +28,30 @@ export function ChatComponent() {
     return(
 
         <>
-            <section className="chat-content">
+            <section className={messages != '' ? "chat-content-charged" : "chat-content-loading"}>
 
-                <div className="chat-messages">
-                    {messages && messages.map((message) => (
-                        <Message key={message.id} message={message.content}/>
-                    ))}
-                </div>
+                {messages != '' ? 
 
-                <div className="chat-send-message">
-                    <SendMessage/>
-                </div>
+                    <>
+                        <div className="chat-messages-charged">
+                            {messages && messages.map((message) => (
+                                <Message key={message.id} message={message.content}/>
+                            ))}
+                        </div>
 
+                        <div className="chat-send-message">
+                            <SendMessage/>
+                        </div>
+                    </>
+                
+                
+                :
 
+                    <>
+                        <div className="mui-spinner"></div>
+                    </>
+                
+                }
 
 
             </section>
