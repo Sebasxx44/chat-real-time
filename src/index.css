@@ -1,0 +1,333 @@
+ *{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .render-container-app{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+ }
+
+ /* styles chat */
+
+ .chat-content{
+  background-color: rgba(189, 209, 222, 0.3);
+  height: 95vh;
+  width: 50%;
+  overflow: auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+ }
+
+ .chat-messages{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 80vh;
+  padding: 0px 15px;
+  overflow: auto;
+ }
+
+ 
+ .message-component .my-message{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 10px;
+   padding: 5px;
+   border-radius: 5px;
+ }
+
+ .message-component .message{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   flex-direction:row-reverse;
+   gap: 10px;
+   padding: 5px;
+   border-radius: 5px;
+ }
+
+ .text-message {
+   padding: 5px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   gap: 8px;
+ }
+
+ .text-message h5{
+   font-size: 15px;
+   font-weight: 400;
+ }
+
+ .text-message p{
+   font-size: 13px;
+   font-weight: 400;
+ }
+
+ .img-message img{
+   border-radius: 50%;
+   width: 35px;
+   height: 35px;
+ }
+
+ /* style to the form component */
+
+ .send-message-container{
+   width: 97%;
+   height: 100%;
+   display: flex;
+   justify-content: space-evenly;
+   padding: 10px;
+   background-color: white;
+   border-radius: 10px;
+ }
+
+ .chat-send-message{
+   padding: 15px;
+ }
+
+.btn-emoji {
+   padding: 10px;
+   width: 10%;
+   border: none;
+   border-radius: 10px;
+   background-color: #2e14ed;
+   cursor: pointer;
+}
+
+.btn-emoji i {
+   color: white;
+   font-size: 20px;
+}
+
+.send-message-container input {
+   background-color: rgb(255, 255, 255);
+   border: 1px solid rgb(221, 221, 221);
+   border-radius: 5px;
+   font-size: 15px;
+   width: 70%;
+   padding: 5px;
+   outline: none; 
+   transition: all 0.3s ease;
+}
+
+.send-message-container input:focus {
+   border: 1px solid #2e14ed; 
+   box-shadow: 0 0 4px rgba(46, 20, 237, 0.5);
+}
+
+.btn-send-message{
+   padding: 10px;
+   width: 15%;
+   border: none;
+   border-radius: 5px;
+   font-size: 15px;
+   background-color: #2e14ed;
+   color: white;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.btn-send-message:hover{
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+ .container-user{
+   width: 20rem;
+ }
+
+ .card-user { 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   background-color: rgba(189, 209, 222, 0.3);
+   padding: 10px;
+   border-radius: 5px;
+ }
+
+ .card-user img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+ }
+
+ .card-user p {
+   font-size: 20px;
+   margin: 1rem 0;
+ }
+
+ .btn-login, .btn-logout {
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   cursor: pointer;
+   font-size: 17px;
+   background-color: white;
+   transition: all 0.3s ease;
+}
+
+.btn-login:hover, .btn-logout:hover{
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+ }
+
+ .btn-login img, .btn-logout img {
+   width: 30px;
+   height: 30px;
+   object-fit: cover;
+ }
+
+ .my-message .message-send{
+   background-color: white;
+   padding: 10px;
+   border-radius: 5px;
+}
+
+.message .message-send{
+   background-color: rgba(0, 33, 104, 0.849);
+   color: white;
+   padding: 10px;
+   border-radius: 5px;
+ }
+
+ .close {
+    display: none;
+ }
+
+ .open{
+    display: block;
+    position: absolute;
+    bottom: 15%;
+ }
+
+ 
+ /* Selecciona toda la scrollbar */
+::-webkit-scrollbar {
+   width: 10px; 
+}
+
+/* Fondo de la scrollbar */
+::-webkit-scrollbar-track {
+   background: #f1f1f1; 
+}
+
+/* Barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+   background: #00154b; 
+   border-radius: 6px; /* Bordes redondeados */
+}
+
+
+@media(max-width: 768px){
+
+   .render-container-app{
+      flex-direction: column;
+      height: auto;
+      padding: 5px;
+      justify-content: flex-start;
+   }
+
+   .container-user{
+      width: 20rem;
+   }
+
+   .card-user {
+      height: auto;
+  }
+
+   .chat-content{
+      background-color: rgba(189, 209, 222, 0.3);
+      height: 82vh;
+      width: 100%;
+   }
+
+   .card-user img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+   
+    .card-user p {
+      font-size: 15px;
+      margin: 0.5rem 0;
+    }
+   
+    .btn-login, .btn-logout {
+      font-size: 15px;
+   }
+
+   .btn-login img, .btn-logout img {
+      width: 25px;
+      height: 25px;
+    }
+
+    .send-message-container{
+      width: auto;
+      padding: 2px;
+    }
+
+    .send-message-container input{
+      border: none;
+      padding: 10px;
+      height: 25px;
+    }
+
+    .send-message-container input:focus {
+      border: none; 
+      box-shadow: none;
+   }
+
+    .chat-messages{
+      gap: 0px;
+    }
+
+    .chat-send-message {
+      padding: 5px;
+   }
+
+   .btn-emoji {
+      padding: 0px;
+      border: none;
+      background-color: transparent;
+   }
+
+   .btn-emoji i {
+      color: #2e14ed;
+      font-size: 27px;
+   }
+
+   .btn-send-message {
+      background-color: transparent;
+   }
+
+   .btn-send-message:hover{
+      box-shadow: none;
+   }
+
+   .btn-send-message i{
+      color: #2e14ed;
+      font-size: 27px;
+   }
+
+
+   
+
+
+
+}
+
