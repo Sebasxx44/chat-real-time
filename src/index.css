@@ -65,28 +65,38 @@ font-family: "Radio Canada Big", sans-serif;
    border-radius: 5px;
 }
 
+.my-message .message-date{
+   display: flex;
+   justify-content: flex-end;
+}
+
+.message .message-date{
+   display: flex;
+   justify-content: flex-start;
+}
+
 .text-message {
-padding: 5px;
-display: flex;
-justify-content: center;
-flex-direction: column;
-gap: 8px;
+   padding: 5px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   gap: 8px;
 }
 
 .text-message h5{
-font-size: 15px;
-font-weight: 400;
+   font-size: 15px;
+   font-weight: 400;
 }
 
 .text-message p{
-font-size: 13px;
-font-weight: 400;
+   font-size: 13px;
+   font-weight: 400;
 }
 
 .img-message img{
-border-radius: 50%;
-width: 35px;
-height: 35px;
+   border-radius: 50%;
+   width: 35px;
+   height: 35px;
 }
 
 /* style to the form component */
