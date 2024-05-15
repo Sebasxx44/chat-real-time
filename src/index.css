@@ -50,7 +50,7 @@ font-family: "Radio Canada Big", sans-serif;
    display: flex;
    justify-content: flex-end;
    align-items: center;
-   gap: 10px;
+   gap: 1px;
    padding: 5px;
    border-radius: 5px;
 }
@@ -221,13 +221,24 @@ font-family: "Radio Canada Big", sans-serif;
    background-color: white;
    padding: 10px;
    border-radius: 5px;
+   display: flex;
+   justify-content: flex-end;
 }
 
 .message .message-send{
-   background-color: rgba(0, 33, 104, 0.849);
+   background-color: rgba(0, 19, 61, 0.986);
    color: white;
    padding: 10px;
    border-radius: 5px;
+}
+
+.my-message .message-send p {
+   display: none;
+}
+
+.message .message-send p {
+   font-size: 11px;
+   font-weight: 500;
 }
 
 .close {

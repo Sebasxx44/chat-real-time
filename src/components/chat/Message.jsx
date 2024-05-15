@@ -29,6 +29,7 @@ export  function Message({message}) {
                     <div className="text-message">
 
                         <div className="message-send">
+                            <p>{message.name}</p>
                             <h5>{message.text}</h5>
                         </div>
 
